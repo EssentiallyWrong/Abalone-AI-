@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
   {
     State currentState = boardManager.convertBoardToState();
     agent.setState(currentState);
-    State newState = agent.turn(currentState);
+    State newState = agent.turn();
 
     Node[,] newBoard = boardManager.convertStateToBoard(newState);
     boardBuilder.generateAllNeighbors(newBoard);

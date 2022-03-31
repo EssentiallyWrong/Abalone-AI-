@@ -22,7 +22,7 @@ public class Agent : MonoBehaviour
                 {0, 0, 0, 0, 0, 0, 0, 0, 0}};
 
 
-  int testDepth = 1;
+  int testDepth = 2;
   State currentState;
   int side;
 
@@ -65,24 +65,8 @@ public class Agent : MonoBehaviour
     printBoard(nextBoard.getBoard());
     return nextBoard;
   }
-  public State turn(State startState)
+  public State turn()
   {
-    currentState = startState;
-    printBoard(currentState.getBoard());
-    if (startState.getTurn() == 1)
-    {
-      side = 1;
-      opSide = 2;
-      firstTurn = true;
-    }
-    else
-    {
-      side = 2;
-      opSide = 1;
-      firstTurn = false;
-    }
-    //!!!REMOVE AFTER TESTING
-    firstTurn = false;
     if (firstTurn)
     {
       return turnOne();
