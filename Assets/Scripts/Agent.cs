@@ -65,8 +65,25 @@ public class Agent : MonoBehaviour
     printBoard(nextBoard.getBoard());
     return nextBoard;
   }
-  public State turn()
+  public State turn(State startState)
   {
+
+    currentState = startState;
+    printBoard(currentState.getBoard());
+    if (startState.getTurn() == 1)
+    {
+      side = 1;
+      opSide = 2;
+      firstTurn = true;
+    }
+    else
+    {
+      side = 2;
+      opSide = 1;
+      firstTurn = false;
+    }
+    //!!!REMOVE AFTER TESTING
+    firstTurn = false;
     if (firstTurn)
     {
       return turnOne();
