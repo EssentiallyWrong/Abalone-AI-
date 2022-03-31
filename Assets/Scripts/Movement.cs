@@ -457,7 +457,6 @@ public class Movement : MonoBehaviour
         move(direction);
         abalone.updateUIBoard();
         InputScript.deselectAllTiles();
-        gameManager.cycleTurn();
         return;
       }
       else
@@ -555,6 +554,9 @@ public class Movement : MonoBehaviour
     {
       node.setColor(color);
     }
+    abalone.updateUIBoard();
+
+    gameManager.cycleTurn();
 
   }
 
@@ -570,6 +572,7 @@ public class Movement : MonoBehaviour
       head.setColor(BoardColor.EMPTY);
       nodeList.Remove(head);
     }
+    gameManager.cycleTurn();
   }
 
   public void push(Direction direction, List<Node> nodeList)
